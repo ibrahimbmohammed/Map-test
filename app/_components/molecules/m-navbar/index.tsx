@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Transition from '@lib/hoc/transition-wrapper';
-import logo from '@assets/webp/logo.webp';
+import logo from "@assets/webp/Logo.webp";
 import { v4 as uuidv4 } from 'uuid';
 import NavbarItem from '@atoms/a-nav-item';
 import { UrlObject } from 'url';
