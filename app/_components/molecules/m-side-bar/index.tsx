@@ -77,7 +77,7 @@ function Sidebar({
             !openDrawer && "justify-center"
           }`}
         >
-          <Logo className="ml-8" />
+          <Logo className="ml-8 mt-[8px]" />
           <p className="text-[10px] pl-3 sm:text-[12px] sm:pl-2 leading-[14px] text-[#141460] font-semibold text-wrap max-w-[9rem]">
             {" "}
             Medical Advanced Platform
