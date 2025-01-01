@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": ".",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"],
+      "@atoms/*": ["app/_components/atoms/*"],
+      "@molecules/*": ["app/_components/molecules/*"],
+      "@organisms/*": ["app/_components/organisms/*"],
+      "@layout/*": ["app/_components/layout/*"],
+      "@providers/*": ["app/_providers/*"],
+      "@styles/*": ["app/*"],
+      "@lib/*": ["app/_lib/*"],
+      "@services/*": ["app/_services/*"],
+      "@helpers/*": ["helpers/*"],
+      "@store/*": ["app/_store/*"],
+      "@constants": ["app/_lib/constants"],
+      "@utils/*": ["app/_lib/_utils/*"],
+      "@assets/*": ["public/assets/*"],
+      "@public/*": ["public/*"],
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}

@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  html {
+    color-scheme: light !important;
+  }
+}
+
+:root {
+ width: 100%; 
+  --color-primaryColor: #3EC5F0;
+  --color-primaryBlueColor: #175CFF;
+  --color-secondaryColor: #1F2F5E;
+  --color-backgroundColor: #EFF3FA;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #062571;
+    transition: background-color 5000s ease-in-out 0s;
+    
+}
+
+@layer utilities {
+    /* Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+}
+
+ select {
+    -moz-appearance:none !important; /* Firefox */
+    -webkit-appearance:none !important;; /* Safari and Chrome */
+    appearance:none !important;;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+.dashboard-table table th:first-child{
+    border-radius:15px 0 0 0;
+  }
+  
+.dashboard-table table th:last-child{
+    border-radius:0 15px 0 0;
+  }
+
+.table-body tr td {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table-body tr:last-child td {
+  border-bottom: none;
+}
+
+.dashboard-content {
+    position: absolute;
+    min-height: 100%;
+    width: calc(100% - 16rem);
+    overflow-y: hidden;
+    overflow-x: hidden;
+    left: 16rem;
+    background-color: #FFFFFF;
+    padding-bottom: 2rem;
+
+}
+.dashboard-child {
+    padding: 0rem 2.2rem 0rem 2.2rem;
+    padding-top: 3.8rem;
+
+}
+
+.dashboard-top-style {
+  height:50px;
+  width:50px;
+  bottom:0;      
+  position:fixed;
+  overflow:hidden;
+  }
+
+  .dashboard-top-style:before {
+  content:'';
+  display:block;
+  height:100%;
+  border-radius:0  0 0 50% ;
+  box-shadow:0 0 0 50vw turquoise;
+}
+
+@media (min-device-width: 480px) and (max-device-width: 767px) {
+    .dashboard-child {    
+        padding: 0rem 0rem 0rem 0rem;
+    }
+    .dashboard-content {
+        position: absolute;
+        min-height: 100%;
+        width: calc(100% - 7rem);
+        left: 7rem;
+        padding-bottom: 2rem;
+    }
+    .dashboard__content_shift {
+        position: absolute;
+        height: 100%;
+        width: calc(100% - 16.5rem);
+        left: 16.5rem;
+        padding-bottom: 2rem;
+    }
+}
+
+
+input[type="time"]::-webkit-calendar-picker-indicator{
+    filter: invert(48%) sepia(13%) saturate(3207%) hue-rotate(130deg) brightness(95%) contrast(80%);
+  }
+.react-calendar__tile--active {
+background-color: white !important;
+color: black !important;
+}
+.react-calendar__tile--range {}
+.react-calendar__tile--rangeStart {}
+.react-calendar__tile--rangeEnd{}
