@@ -1,9 +1,11 @@
 import { useDropzone } from "react-dropzone";
-import { useAppSelector } from "@/app/_lib/hooks/redux-hooks";
+import { useAppDispatch, useAppSelector } from "@/app/_lib/hooks/redux-hooks";
 import { Button } from "../../atoms/a-button";
 import DownTopIcon from "@/app/_lib/icons/dashboard/down-top";
 import FileUploadIcon from "@/app/_lib/icons/dashboard/main/file-upload";
 import { useRouter } from "next/navigation";
+import { updateQuote } from "@/app/_store/slices/quote-slice";
+import { quoteRequests } from "@/app/_lib/utils/mock";
 
 interface QuoteResponseFileType {
   handleChangePage: () => void;
@@ -12,6 +14,7 @@ interface QuoteResponseFileType {
 function QuoteResponseFile({ handleChangePage }: QuoteResponseFileType) {
   const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
   const router = useRouter();
+  const dispatch = useAppDispatch();
   const quote = useAppSelector((state) => state.quoteData.currentQuote);
   const handleIconClick = (e: React.MouseEvent<HTMLSpanElement>) => {
     const select = e.currentTarget.nextElementSibling as HTMLSelectElement;
@@ -26,6 +29,11 @@ function QuoteResponseFile({ handleChangePage }: QuoteResponseFileType) {
       {file.path} - {file.size} bytes
     </li>
   ));
+
+  const handleCancle = () => {
+    dispatch(updateQuote(quoteRequests));
+    router.push("/dashboard/procurement/qoute");
+  };
 
   return (
     <div className="flex flex-col rounded-lg py-6 px-8 space-y-6 border border-[#E4E7EC] mt-[2rem]">
@@ -192,7 +200,7 @@ function QuoteResponseFile({ handleChangePage }: QuoteResponseFileType) {
       <div className="w-full pt-3 flex items-center justify-end">
         <div className="w-[30rem] space-x-[1.5rem]  flex items-center justify-between">
           <Button
-            onClick={() => router.push("/dashboard/procurement/qoute")}
+            onClick={() => handleCancle()}
             type="button"
             className="w-[4.25rem]"
             variant="cancelOutline"

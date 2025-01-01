@@ -7,6 +7,9 @@ import GrayShareIcon from "@/app/_lib/icons/dashboard/gray-share";
 import { useState } from "react";
 import MyModal from "@/app/_lib/hoc/modal";
 import { useRouter } from "next/navigation";
+import { useAppDispatch } from "@/app/_lib/hooks/redux-hooks";
+import { updateQuote } from "@/app/_store/slices/quote-slice";
+import { quoteRequests } from "@/app/_lib/utils/mock";
 
 interface QuoteResponseFinalReviewType {
   handleChangePage: () => void;
@@ -16,10 +19,17 @@ function QuoteResponseFinalReview({
   handleChangePage,
 }: QuoteResponseFinalReviewType) {
   const [open, onOpen] = useState(false);
+  const dispatch = useAppDispatch();
   const router = useRouter();
   const toggleModal = () => {
     onOpen(!open);
   };
+
+  const handleCancle = () => {
+    dispatch(updateQuote(quoteRequests));
+    router.push("/dashboard/procurement/qoute");
+  };
+
   return (
     <>
       <div className="mt-[2rem]">
@@ -90,7 +100,7 @@ function QuoteResponseFinalReview({
         <div className="w-full pt-6 flex items-center justify-end">
           <div className="w-[30rem] space-x-[1.5rem]  flex items-center justify-between">
             <Button
-              onClick={() => router.push("/dashboard/procurement/qoute")}
+              onClick={() => handleCancle()}
               type="button"
               className="w-[4.25rem]"
               variant="cancelOutline"

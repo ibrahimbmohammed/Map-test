@@ -28,7 +28,6 @@ function QuoteResponseEditableTable() {
   const dispatch = useAppDispatch();
   const quote = useAppSelector((state) => state.quoteData.currentQuote);
 
-
   const handleCalendarClick = (e: React.MouseEvent<HTMLSpanElement>) => {
     e.stopPropagation();
     const dateInput = e.currentTarget.nextElementSibling;
@@ -181,8 +180,8 @@ function QuoteResponseEditableTable() {
               onChange={(e) =>
                 handleFieldUpdate(
                   row.original.id,
-                  "unitPrice",
-                  Math.max(0, Number(e.target.value))
+                  "deliveryDate",
+                  e.target.value
                 )
               }
             />

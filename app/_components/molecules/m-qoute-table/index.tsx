@@ -8,10 +8,10 @@ import BasicTable from "../m-table";
 import IndeterminateCheckbox from "../../atoms/a-checkbox";
 import { formatter } from "@/app/_lib/utils/helper";
 import { quoteRequests } from "@/app/_lib/utils/mock";
-
+import { useAppSelector } from "@/app/_lib/hooks/redux-hooks";
 
 function QuoteResponseTable() {
-
+  const quote = useAppSelector((state) => state.quoteData.currentQuote);
   const columns: ColumnDef<QuoteItem>[] = useMemo(
     () => [
       {
@@ -88,7 +88,6 @@ function QuoteResponseTable() {
     []
   );
 
-
   const calculateTotal = (items: { quantity: number; unitPrice: number }[]) => {
     return items.reduce((sum, item) => sum + item.quantity * item.unitPrice, 0);
   };
@@ -103,7 +102,7 @@ function QuoteResponseTable() {
       <BasicTable
         withColumn
         enableRowSelection
-        data={quoteRequests?.items || []}
+        data={quote?.items || []}
         columns={columns}
       />
       <div className="pt-6 flex items-center justify-end w-full">
@@ -112,13 +111,13 @@ function QuoteResponseTable() {
             Sub Total
           </p>
           <p className="font-thin text-[16px] leading-[23.2px] text-[#475367]">
-            {formatter.format(calculateTotal(quoteRequests?.items))}
+            {formatter.format(calculateTotal(quote?.items || []))}
           </p>
           <p className="font-thin text-[16px] leading-[23.2px] text-[#475367]">
             Total
           </p>
           <p className="font-normal text-[16px] leading-[23.2px] text-[#475367]">
-            {formatter.format(calculateTotal(quoteRequests?.items))}
+            {formatter.format(calculateTotal(quote?.items || []))}
           </p>
         </div>
       </div>

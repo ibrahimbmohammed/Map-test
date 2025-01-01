@@ -15,7 +15,7 @@ import NoeFileIcon from "@/app/_lib/icons/dashboard/main/neo-file";
 import DownTopIcon from "@/app/_lib/icons/dashboard/down-top";
 import QuoteResponseTable from "@/app/_components/molecules/m-qoute-table";
 import { useRouter } from "next/navigation";
-import { useAppDispatch, useAppSelector } from "@/app/_lib/hooks/redux-hooks";
+import { useAppDispatch } from "@/app/_lib/hooks/redux-hooks";
 import { updateQuote } from "@/app/_store/slices/quote-slice";
 import { quoteRequests } from "@/app/_lib/utils/mock";
 
@@ -25,7 +25,6 @@ export default function QoutePage() {
   const router = useRouter();
 
   const dispatch = useAppDispatch();
-  // const quote = useAppSelector((state) => state.quoteData.currentQuote);
   const handleContinue = () => {
     router.push("/dashboard/procurement/qoute/qoute-response");
     dispatch(updateQuote(quoteRequests));

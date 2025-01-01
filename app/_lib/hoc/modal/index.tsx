@@ -5,39 +5,42 @@ import { ImSpinner2 } from "react-icons/im";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation"
 import SpinnerIcon from "../../icons/dashboard/main/spinner-svg";
+import { useAppDispatch } from "../../hooks/redux-hooks";
+import { updateQuote } from "@/app/_store/slices/quote-slice";
+import { quoteRequests } from "../../utils/mock";
 
 interface MyModal {
   isOpen: boolean;
-  setIsOpen: ()=> void;
+  setIsOpen: () => void;
 }
 
 export default function MyModal({ isOpen, setIsOpen }: MyModal) {
+  const router = useRouter();
+  const [isSubmitting, setIsSubmitting] = useState(false); // To show spinner and sending text
+  const [isFinalPanel, setIsFinalPanel] = useState(false);
+  const dispatch = useAppDispatch();
 
-const router = useRouter();
-const [isSubmitting, setIsSubmitting] = useState(false); // To show spinner and sending text
-const [isFinalPanel, setIsFinalPanel] = useState(false); 
+  const handleContinue = () => {
+    setIsSubmitting(true);
 
-
-const handleContinue = () => {
-  setIsSubmitting(true);
-
-  // Simulate API call delay
-  setTimeout(() => {
-    setIsSubmitting(false);
-    setIsFinalPanel(true);
-    toast.success("RFQ ID sent successfully!", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-    router.push("/dashboard/procurement/qoute");
-  }, 3000); // Delay for 3 seconds
-};
+    // Simulate API call delay
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsFinalPanel(true);
+      toast.success("RFQ ID sent successfully!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      dispatch(updateQuote(quoteRequests));
+      router.push("/dashboard/procurement/qoute");
+    }, 3000); // Delay for 3 seconds
+  };
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
