@@ -24,7 +24,7 @@ export default function QouteResponsePage() {
         <p className=" text-sm font-thin text-[#667185]">/ Quote Response</p>
       </div>
       <TabGroup selectedIndex={selectedIndex} onChange={setSelectedIndex}>
-        <TabList className="border rounded-[10px] py-6 px-[20px] flex items-center space-x-[10rem] 2xl:space-x-[14rem] ">
+        <TabList className="border rounded-[10px] py-6 px-[24px] flex items-center space-x-[10rem] 2xl:space-x-[14rem] ">
           <CustomTabItem
             index={0}
             selectedIndex={selectedIndex}

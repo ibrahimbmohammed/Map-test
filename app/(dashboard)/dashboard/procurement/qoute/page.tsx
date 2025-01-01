@@ -26,6 +26,7 @@ export default function QoutePage() {
 
   const dispatch = useAppDispatch();
   const handleContinue = () => {
+    dispatch(updateQuote(quoteRequests));
     router.push("/dashboard/procurement/qoute/qoute-response");
   };
 
