@@ -1,27 +1,32 @@
-
-import QuoteResponseEditableTable from "../../molecules/m-qoute-editable-table";
-import EmptyCalenderIcon from "@/app/_lib/icons/dashboard/main/empty-calender";
-import GrayCancleIcon from "@/app/_lib/icons/dashboard/main/gray-cancel";
-import { formatter } from "@/app/_lib/utils/helper";
+import { useDropzone } from "react-dropzone";
 import { useAppSelector } from "@/app/_lib/hooks/redux-hooks";
 import { Button } from "../../atoms/a-button";
 import DownTopIcon from "@/app/_lib/icons/dashboard/down-top";
 import FileUploadIcon from "@/app/_lib/icons/dashboard/main/file-upload";
+import { useRouter } from "next/navigation";
 
 interface QuoteResponseFileType {
   handleChangePage: () => void;
 }
 
 function QuoteResponseFile({ handleChangePage }: QuoteResponseFileType) {
+  const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
+  const router = useRouter();
   const quote = useAppSelector((state) => state.quoteData.currentQuote);
   const handleIconClick = (e: React.MouseEvent<HTMLSpanElement>) => {
-  const select = e.currentTarget.nextElementSibling as HTMLSelectElement;
-  if (select) {
-    select.focus();
-    select.dispatchEvent(new MouseEvent("mousedown", { bubbles: true }));
-  }
+    const select = e.currentTarget.nextElementSibling as HTMLSelectElement;
+    if (select) {
+      select.focus();
+      select.dispatchEvent(new MouseEvent("mousedown", { bubbles: true }));
+    }
+  };
 
-};
+  const files = acceptedFiles.map((file) => (
+    <li key={file.path}>
+      {file.path} - {file.size} bytes
+    </li>
+  ));
+
   return (
     <div className="flex flex-col rounded-lg py-6 px-8 space-y-6 border border-[#E4E7EC] mt-[2rem]">
       <div className="flex flex-col">
@@ -134,19 +139,26 @@ function QuoteResponseFile({ handleChangePage }: QuoteResponseFileType) {
               Attach all necessary files or documents
             </p>
           </div>
-          <div className="border-[2px] rounded-lg border-[#D0D5DD] border-dashed w-[32.1rem] h-[15.68rem] flex items-center justify-center flex-col space-y-1">
+          <div
+            {...getRootProps({ className: "dropzone" })}
+            className="border-[2px] rounded-lg border-[#D0D5DD] border-dashed w-[32.1rem] h-[15.68rem] flex items-center justify-center flex-col space-y-1"
+          >
+            <input {...getInputProps()} />
             <div className="rounded-full w-[56px] h-[56px] bg-[#F0F2F5] flex items-center justify-center ">
               <FileUploadIcon />
             </div>
             <div className="flex flex-col items-center">
               <div className="flex items-center">
-                <p className="text-primaryBlueColor font-normal pr-2 cursor-pointer">
+                <p className="text-primaryBlueColor text-sm font-normal pr-2 cursor-pointer">
                   {" "}
                   Click to upload
                 </p>
-                <p className="text-[#475367] font-light"> or drag and drop</p>
+                <p className="text-[#475367] text-sm font-light">
+                  {" "}
+                  or drag and drop
+                </p>
               </div>
-              <div className="text-[#98A2B3]  font-thin">
+              <div className="text-[#98A2B3] text-sm  font-thin">
                 SVG, PNG, JPG or GIF (max. 800x400px)
               </div>
             </div>
@@ -163,10 +175,9 @@ function QuoteResponseFile({ handleChangePage }: QuoteResponseFileType) {
             </div>
             <div className="">
               <Button
-                onClick={() => handleChangePage()}
                 type="button"
                 variant="primaryBorder"
-                className="w-[6.75rem]"
+                className="w-[6.75rem] h-[2.4rem] flex items-center justify-center"
                 size="xfull"
               >
                 <span className="font-normal text-[14px]">Browse Files</span>
@@ -175,10 +186,13 @@ function QuoteResponseFile({ handleChangePage }: QuoteResponseFileType) {
           </div>
         </div>
       </div>
+      <div className="text-black font-thin text-sm">
+        <ul>{files}</ul>
+      </div>
       <div className="w-full pt-3 flex items-center justify-end">
         <div className="w-[30rem] space-x-[1.5rem]  flex items-center justify-between">
           <Button
-            onClick={() => handleChangePage()}
+            onClick={() => router.push("/dashboard/procurement/qoute")}
             type="button"
             className="w-[4.25rem]"
             variant="cancelOutline"
@@ -187,7 +201,6 @@ function QuoteResponseFile({ handleChangePage }: QuoteResponseFileType) {
             <span className="font-normal text-[14px]">cancel</span>
           </Button>
           <Button
-            onClick={() => handleChangePage()}
             type="button"
             variant="primaryBorder"
             className="w-[11.75rem]"

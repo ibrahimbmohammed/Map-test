@@ -4,13 +4,14 @@ import GrayCancleIcon from "@/app/_lib/icons/dashboard/main/gray-cancel";
 import { formatter } from "@/app/_lib/utils/helper";
 import { useAppSelector } from "@/app/_lib/hooks/redux-hooks";
 import { Button } from "../../atoms/a-button";
+import { useRouter } from "next/navigation";
 
 interface QuoteInitialResponseType {
-  handleChangePage: ()=> void;
+  handleChangePage: () => void;
 }
 
 function QuoteInitialResponse({ handleChangePage }: QuoteInitialResponseType) {
-
+  const router = useRouter();
   const quote = useAppSelector((state) => state.quoteData.currentQuote);
 
   return (
@@ -106,7 +107,7 @@ function QuoteInitialResponse({ handleChangePage }: QuoteInitialResponseType) {
       <div className="w-full pt-3 flex items-center justify-end">
         <div className="w-[30rem] space-x-[1.5rem]  flex items-center justify-between">
           <Button
-            onClick={() => handleChangePage()}
+            onClick={() => router.push("/dashboard/procurement/qoute")}
             type="button"
             className="w-[4.25rem]"
             variant="cancelOutline"
@@ -115,7 +116,6 @@ function QuoteInitialResponse({ handleChangePage }: QuoteInitialResponseType) {
             <span className="font-normal text-sm">cancel</span>
           </Button>
           <Button
-            onClick={() => handleChangePage()}
             type="button"
             variant="primaryBorder"
             className="w-[11.75rem]"

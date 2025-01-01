@@ -6,6 +6,7 @@ import { Button } from "../../atoms/a-button";
 import GrayShareIcon from "@/app/_lib/icons/dashboard/gray-share";
 import { useState } from "react";
 import MyModal from "@/app/_lib/hoc/modal";
+import { useRouter } from "next/navigation";
 
 interface QuoteResponseFinalReviewType {
   handleChangePage: () => void;
@@ -14,10 +15,11 @@ interface QuoteResponseFinalReviewType {
 function QuoteResponseFinalReview({
   handleChangePage,
 }: QuoteResponseFinalReviewType) {
-    const [open, onOpen] = useState(false);
-    const toggleModal = ()=> {
-        onOpen(!open);
-    };
+  const [open, onOpen] = useState(false);
+  const router = useRouter();
+  const toggleModal = () => {
+    onOpen(!open);
+  };
   return (
     <>
       <div className="mt-[2rem]">
@@ -88,7 +90,7 @@ function QuoteResponseFinalReview({
         <div className="w-full pt-6 flex items-center justify-end">
           <div className="w-[30rem] space-x-[1.5rem]  flex items-center justify-between">
             <Button
-              //onClick={() => handleChangePage()}
+              onClick={() => router.push("/dashboard/procurement/qoute")}
               type="button"
               className="w-[4.25rem]"
               variant="cancelOutline"
