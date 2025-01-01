@@ -73,7 +73,7 @@ export default function QoutePage() {
             Expected delivery date : 2024-12-02
           </p>
         </div>
-        <div className="flex items-center justify-between ">
+        <div className="flex flex-col lg:flex-row items-center justify-between ">
           <div className="grid grid-cols-2 gap-3">
             {/*      Title           */}
             <p className="text-[1rem] text-[#555E68] font-thin ">Title</p>
@@ -83,7 +83,7 @@ export default function QoutePage() {
             <p className="text-[#344054] font-light text-[1rem]">RQ #01234</p>
             {/*      Requestor           */}
             <p className="text-[1rem] text-[#555E68] font-thin">Requestor</p>
-            <span className="flex items-center justify-between space-x-1">
+            <span className="flex flex-col lg:flex-row items-start lg:items-center lg:justify-between space-x-1">
               <span className="rounded-full w-8 h-8 bg-[#FFECE5] flex items-center justify-center">
                 <p className="text-xs text-[#101928]">JD</p>
               </span>
@@ -104,7 +104,7 @@ export default function QoutePage() {
             <p className="text-[1rem] text-[#555E68] font-thin">Department</p>
             <p className="text-[#101928] font-light text-[1rem]">Maternity</p>
           </div>
-          <div className="flex flex-col border border-[#E4E7EC] px-4 py-4 gap-2 rounded-[10px] w-[22rem] h-[6rem]">
+          <div className="flex flex-col border border-[#E4E7EC] px-4 py-4 gap-2 rounded-[10px] w-[20rem] lg:w-[22rem] h-[6rem]">
             <div className="flex items-end space-x-2">
               <span>
                 <BuildingIcon />
@@ -130,7 +130,7 @@ export default function QoutePage() {
       <div className="pt-6">
         <QuoteResponseTable />
       </div>
-      <div className="rounded-lg py-6 px-8 border border-[#E4E7EC] mt-6">
+      <div className="rounded-lg py-6 px-4 lg:px-8  border border-[#E4E7EC] mt-6">
         <div className="flex items-center justify-between">
           <div className="flex space-x-1">
             <NoeFileIcon />

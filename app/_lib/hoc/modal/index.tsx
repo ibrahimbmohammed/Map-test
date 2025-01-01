@@ -30,12 +30,12 @@ export default function MyModal({ isOpen, setIsOpen }: MyModal) {
       toast.success("RFQ ID sent successfully!", {
         position: "top-right",
         autoClose: 5000,
-        hideProgressBar: false,
+        hideProgressBar: true,
         closeOnClick: false,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light",
+        //theme: "light",
       });
       dispatch(updateQuote(quoteRequests));
       router.push("/dashboard/procurement/qoute");

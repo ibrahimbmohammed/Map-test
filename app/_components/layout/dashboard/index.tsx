@@ -38,11 +38,19 @@ function DashboardLayout({ children }: IDashboardLayoutProps): JSX.Element | nul
     if (width < 1280) {
       return (
         <>
-          <SidebarSlideOver openSidebar={openSidebar} toggleOpenSidebar={toggleOpenSidebar}>
-            <Sidebar width={width} openDrawer={SHOW} showMenuIcon={!SHOW} navItems={NavItems} />
+          <SidebarSlideOver
+            openSidebar={openSidebar}
+            toggleOpenSidebar={toggleOpenSidebar}
+          >
+            <Sidebar
+              width={width}
+              openDrawer={SHOW}
+              showMenuIcon={!SHOW}
+              navItems={NavItems}
+            />
           </SidebarSlideOver>
           <MobileTopNavigation toggleOpenSidebar={toggleOpenSidebar} />
-          <div className="p-2  ">{children}</div>
+          <div className="p-2 bg-[#FFFFFF]">{children}</div>
         </>
       );
     }
