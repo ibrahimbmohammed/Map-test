@@ -5,7 +5,7 @@
 "use client";
 
 import dayjs from "dayjs";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { Button } from "@/app/_components/atoms/a-button";
 import { mockedData2 } from "../../_base-column/mock";
 import CanCleIcon from "@/app/_lib/icons/dashboard/main/cancel";
@@ -27,8 +27,11 @@ export default function QoutePage() {
   const dispatch = useAppDispatch();
   const handleContinue = () => {
     router.push("/dashboard/procurement/qoute/qoute-response");
-    dispatch(updateQuote(quoteRequests));
   };
+
+  useEffect(() => {
+    dispatch(updateQuote(quoteRequests));
+  }, []);
 
   return (
     <main className="flex flex-col mt-[2rem] ">
