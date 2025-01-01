@@ -8,7 +8,7 @@ import { MdMenu, MdOutlineMenuOpen } from 'react-icons/md';
 import GirlAvartar from "@assets/png/Avatars.png";
 import LogoutIcon from '@/app/_lib/icons/dashboard/logout';
 
-// bg-[#ECEFF9]
+
 const style = {
   active:
     "text-[#344054] pl-3 bg-[#E3EAFB] font-[300] text-[24px] rounded-[4px] font-normal ",
@@ -16,9 +16,10 @@ const style = {
     " text-[#344054] py-[0rem] pl-3 hover:bg-[#E3EAFB] rounded-[4px] hover:text-[#344054] font-light text-[14px] leading-[20.3px]",
   link: `group relative text-[0.88rem] flex space-x-4 px-0 my-[0.05rem] items-center h-[2.5rem]
     w-full my-[0rem] group-hover:cursor-pointer pl-8`,
-  activeInner: "text-[#344054] font-normal ",
-  inactiveInner: "text-[#344054] font-normal rounded-sm ",
-  linkInner: `group relative text-[0.88rem] hover:font-normal hover:bg-[#E3EAFB] hover:text-[#344054] flex  items-center h-[2.5rem]
+  activeInner: " ",
+  inactiveInner:
+    "text-[#344054] font-normal bg-[#E3EAFB] pl-3 mt-[5px] borded-[4px]",
+  linkInner: `group relative text-[0.88rem] hover:font-normal  hover:bg-[#E3EAFB] hover:text-[#344054] flex  items-center h-[2.5rem]
     w-full  group-hover:cursor-pointer pl-12 `,
   link_hide: "hidden",
   back_active: " ",

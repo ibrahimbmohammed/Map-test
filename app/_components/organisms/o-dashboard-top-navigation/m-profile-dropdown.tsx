@@ -48,7 +48,9 @@ function ProfileDropDown({ children, position = '-right-5' }: IProfileDropDownPr
                     <Link href="/dashboard/settings">
                       <button
                         className={`${
-                          active ? 'bg-primaryColor text-white' : 'text-gray-900'
+                          active
+                            ? "bg-primaryBlueColor text-white"
+                            : "text-gray-900"
                         } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                       >
                         {active ? (
@@ -70,7 +72,9 @@ function ProfileDropDown({ children, position = '-right-5' }: IProfileDropDownPr
                     <button
                       type="button"
                       className={`${
-                        active ? 'bg-primaryColor text-white' : 'text-gray-900'
+                        active
+                          ? "bg-primaryBlueColor text-white"
+                          : "text-gray-900"
                       } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                       onClick={logoutUser}
                     >
@@ -79,7 +83,7 @@ function ProfileDropDown({ children, position = '-right-5' }: IProfileDropDownPr
                           <LogoutIcon className="mr-2 fill-white" />
                         ) : (
                           <LogoutIcon className="mr-2 fill-slate-800" />
-                        )}{' '}
+                        )}{" "}
                       </span>
                       Log Out
                     </button>

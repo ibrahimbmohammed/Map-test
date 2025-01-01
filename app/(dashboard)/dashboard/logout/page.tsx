@@ -29,14 +29,18 @@ export default function Logout() {
       setIsOpen={setIsOpen}
     >
       <div className="w-full flex-col flex items-center justify-center mt-[0rem] ">
-        <p className="text-red-500 text-2xl pb-[2rem]">Are you sure you want to logout out</p>
+        <p className="text-red-500 text-2xl pb-[2rem]">
+          Are you sure you want to logout out
+        </p>
         <button
           onClick={() => {
             handleLogout();
           }}
-          className="btn btn-sm  border-0 px-4 h-[2.58rem]  bg-[#5D17EB] group-hover:bg-[#FAF8FE] mb-[1rem]"
+          className="btn btn-sm  border-0 px-4 h-[2.58rem]  bg-primaryBlueColor group-hover:bg-[#FAF8FE] mb-[1rem]"
         >
-          <p className="font-[600] text-xs group-hover:text-[#5D17EB] text-[#FFFFFF] ">Logout</p>
+          <p className="font-[600] text-xs group-hover:text-primaryBlueColor text-[#FFFFFF] ">
+            Logout
+          </p>
         </button>
       </div>
     </FormModal>

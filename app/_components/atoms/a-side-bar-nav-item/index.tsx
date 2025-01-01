@@ -70,14 +70,14 @@ function SidebarNavItem({
           </i>
           {showIcon && <span>{name}</span>}
           {name === "Calendar" && (
-            <div className="relative w-full h-5 flex items-center justify-end pr-0">
+            <div className="relative w-full h-5 flex items-center justify-end pr-2">
               <span className=" w-[30px] h-[17px] bg-[#175CFF] rounded-[10px] flex items-center justify-center ">
                 <p className="text-white text-[12px] leading-[17px]">10</p>
               </span>
             </div>
           )}
           {name === "Communication" && (
-            <div className="relative w-full h-5 flex items-center justify-end pr-0">
+            <div className="relative w-full h-5 flex items-center justify-end pr-2">
               <span className=" w-[30px] h-[17px] bg-[#175CFF] rounded-[10px] flex items-center justify-center">
                 <p className="text-white text-[12px] leading-[17px]">10</p>
               </span>

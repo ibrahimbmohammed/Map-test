@@ -53,7 +53,7 @@ const router = useRouter()
                 <ChatTopIcon />
               </span>
               <span className="flex mt-1 items-center justify-center space-x-2">
-                <ProfileDropDown position="-right-50">
+                <ProfileDropDown position="-right-10">
                   <img
                     src={GirlAvartar?.src}
                     className="rounded-full"
